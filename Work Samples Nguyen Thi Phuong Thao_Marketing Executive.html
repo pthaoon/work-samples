@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyen Thi Phuong Thao (Audrey) — Marketing Executive Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#1a1a18;
+  --ink2:#4a4a46;
+  --ink3:#888780;
+  --paper:#faf9f6;
+  --accent:#D85A30;
+  --accent-light:#FAECE7;
+  --rule:rgba(26,26,24,0.12);
+  --serif:'DM Serif Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6}
+
+/* NAV */
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;border-bottom:0.5px solid var(--rule);position:sticky;top:0;background:var(--paper);z-index:100}
+.nav-name{font-family:var(--serif);font-size:1.1rem;letter-spacing:0.01em}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-size:13px;color:var(--ink2);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;font-weight:400}
+.nav-links a:hover{color:var(--accent)}
+
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:88vh;border-bottom:0.5px solid var(--rule)}
+.hero-left{padding:4rem 3rem 4rem;display:flex;flex-direction:column;justify-content:center;border-right:0.5px solid var(--rule)}
+.hero-eyebrow{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:1.5rem}
+.hero-headline{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.2rem);line-height:1.1;margin-bottom:2rem;color:var(--ink)}
+.hero-body{font-size:15px;color:var(--ink2);line-height:1.75;max-width:440px;margin-bottom:2.5rem}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:12px 24px;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:none;font-family:var(--sans);transition:background 0.2s}
+.hero-cta:hover{background:var(--accent)}
+.hero-right{padding:0;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;height:100%}
+.stat-cell{padding:2rem 1.5rem;border:0.5px solid var(--rule);display:flex;flex-direction:column;justify-content:flex-end}
+.stat-num{font-family:var(--serif);font-size:3rem;line-height:1;color:var(--ink);margin-bottom:0.5rem}
+.stat-label{font-size:12px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.06em;line-height:1.4}
+.stat-cell.accent{background:var(--accent);border-color:var(--accent)}
+.stat-cell.accent .stat-num{color:#fff}
+.stat-cell.accent .stat-label{color:rgba(255,255,255,0.75)}
+
+/* SECTION BASE */
+section{padding:5rem 3rem;border-bottom:0.5px solid var(--rule)}
+.section-header{display:flex;align-items:baseline;gap:1.5rem;margin-bottom:3rem}
+.section-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);min-width:80px}
+.section-title{font-family:var(--serif);font-size:2.2rem;color:var(--ink)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-body{font-size:15px;color:var(--ink2);line-height:1.8}
+.about-body p+p{margin-top:1rem}
+.about-quote{font-size:1.2rem;font-style:italic;color:var(--accent);border-left:4px solid var(--accent);padding-left:1.5rem;margin:1.5rem 0;font-family:var(--serif)}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.5rem}
+.tag{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;padding:6px 12px;border:0.5px solid var(--rule);color:var(--ink2)}
+.tag.hot{background:var(--accent-light);border-color:var(--accent);color:var(--accent)}
+
+/* EXPERIENCE / CASE STUDIES */
+.case-item{padding:3rem 0;border-top:0.5px solid var(--rule)}
+.case-item:last-child{border-bottom:0.5px solid var(--rule)}
+.case-title{font-family:var(--serif);font-size:1.7rem;color:var(--ink);margin-bottom:0.5rem}
+.case-meta{display:flex;gap:1.5rem;margin-bottom:1.25rem;flex-wrap:wrap}
+.case-company{font-size:13px;font-weight:500;color:var(--accent);letter-spacing:0.02em}
+.case-type{font-size:12px;color:var(--ink3);letter-spacing:0.04em}
+.case-body{font-size:15px;color:var(--ink2);line-height:1.8}
+.case-body p+p{margin-top:1rem}
+.hl{display:inline;background:var(--accent-light);color:var(--accent);font-weight:500;padding:0 2px}
+.case-link{font-size:13px;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;font-weight:500}
+.case-link:hover{border-bottom-color:var(--accent)}
+
+/* EARLIER EXPERIENCE (de-emphasized) */
+.earlier-exp{padding:2rem;background:#fff;border:0.5px solid var(--rule);margin-top:1rem}
+.earlier-exp h3{font-family:var(--serif);font-size:1.3rem;color:var(--ink2);margin-bottom:0.25rem}
+.earlier-exp .case-type{margin-bottom:1rem;display:block}
+.earlier-exp p{font-size:14px;color:var(--ink2);line-height:1.75}
+.earlier-exp p+p{margin-top:0.85rem}
+
+/* WORK SAMPLES */
+.samples-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:1rem}
+.sample-card{border:0.5px solid var(--rule);padding:1.75rem;background:#fff}
+.sample-title{font-family:var(--serif);font-size:1.2rem;color:var(--ink);margin-bottom:0.2rem}
+.sample-type{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:0.9rem}
+.sample-desc{font-size:13px;color:var(--ink2);margin-bottom:1rem;line-height:1.6}
+.sample-link{font-size:13px;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;font-weight:500}
+.sample-link:hover{border-bottom-color:var(--accent)}
+
+/* ADDITIONAL PROJECTS — smaller, lower visual weight */
+.additional-section{background:var(--accent-light)}
+.additional-intro{font-size:14px;color:var(--ink2);max-width:600px;margin-bottom:2rem;line-height:1.7}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+.mini-card{border:0.5px solid var(--rule);background:#fff;padding:1.25rem}
+.mini-card-title{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:0.25rem}
+.mini-card-type{font-size:11px;color:var(--ink3);letter-spacing:0.04em;display:block;margin-bottom:0.75rem}
+.mini-link{font-size:12px;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;font-weight:500}
+.mini-link:hover{border-bottom-color:var(--accent)}
+
+/* SKILLS */
+.skills-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.tools-block{padding:1.5rem;border:0.5px solid var(--rule);background:#fff}
+.tools-block-title{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem}
+.tools-items{display:flex;flex-wrap:wrap;gap:6px}
+.tool-badge{font-size:12px;padding:4px 10px;background:var(--accent-light);color:var(--accent);font-weight:400}
+
+/* EDUCATION */
+.edu-row{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:1rem}
+.edu-school{font-family:var(--serif);font-size:1.3rem;color:var(--ink)}
+.edu-detail{font-size:14px;color:var(--ink2);margin-top:0.5rem}
+.edu-period{font-size:12px;color:var(--ink3);letter-spacing:0.04em}
+
+/* CONTACT */
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-headline{font-family:var(--serif);font-size:2.6rem;line-height:1.15;color:var(--ink)}
+.contact-headline em{font-style:italic;color:var(--accent)}
+.contact-links{display:flex;flex-direction:column;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:0.5px solid var(--rule);text-decoration:none;color:var(--ink);font-size:14px;transition:border-color 0.2s;background:#fff}
+.contact-link:hover{border-color:var(--accent);color:var(--accent)}
+.contact-link-label{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:2px}
+.contact-link-val{font-size:14px;color:var(--ink)}
+
+/* FOOTER */
+footer{padding:2rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-name{font-family:var(--serif);font-size:1rem;color:var(--ink)}
+.footer-note{font-size:12px;color:var(--ink3);letter-spacing:0.04em}
+
+html{scroll-behavior:smooth}
+
+@media(max-width:768px){
+  nav{flex-direction:column;gap:1rem}
+  .nav-links{flex-direction:column;gap:0.5rem}
+  .hero{grid-template-columns:1fr}
+  .hero-left{border-right:none}
+  .about-grid,.contact-inner{grid-template-columns:1fr}
+  .edu-row{flex-direction:column}
+}
+
+@media print{
+  nav,footer{display:none}
+  .hero{min-height:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Thao Nguyen (Audrey)</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work Samples</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding:0;border-bottom:0.5px solid var(--rule)">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Marketing Executive / Generalist · Ho Chi Minh City</p>
+    <h1 class="hero-headline">Multi-channel campaigns,<br>end to end.</h1>
+    <p class="hero-body">Marketing Executive with nearly 4 years of experience planning and executing multi-channel campaigns — content, social, email, events, and partnerships — across Vietnam &amp; Philippines markets. Comfortable owning end-to-end execution across channels and collaborating with cross-functional teams to deliver consistent brand communication and measurable results.</p>
+    <button class="hero-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get in touch →</button>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-cell accent">
+        <div class="stat-num">350%</div>
+        <div class="stat-label">Zalo OA follower growth through personalized broadcast strategy</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">5%</div>
+        <div class="stat-label">Average conversion rate across paid &amp; organic campaigns</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">90%</div>
+        <div class="stat-label">Fulfillment rate across 15+ member events</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">3–5%</div>
+        <div class="stat-label">Email open &amp; click-through rate improvement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-label">About</span>
+    <h2 class="section-title">Background</h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-body">
+      <p>I'm a Marketing Executive with nearly 4 years of experience across hospitality, technology, and B2B sectors in Vietnam &amp; Philippines. My focus is owning execution end-to-end — content, social, email, events, and partnerships — while keeping brand communication consistent across every touchpoint.</p>
+
+      <div class="about-quote">"Brand consistency isn't a finishing touch — it's part of how I execute."</div>
+
+      <p>At Accor Plus, I planned and executed integrated campaigns across two markets — coordinating with hotel partners, influencers, and the Member Care team. At SparkMinds, I led content and brand communication initiatives while managing the company website and supporting B2B campaigns, working closely with product and technical teams.</p>
+
+      <p>I work well in lean teams where one person covers what's typically split across a full marketing department — content, channels, operations, and brand, all connected.</p>
+    </div>
+    <div>
+      <p style="font-size:13px;color:var(--ink3);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:1rem">Core skills</p>
+      <div class="about-tags">
+        <span class="tag hot">Integrated Campaign Management</span>
+        <span class="tag hot">Content &amp; Social Media</span>
+        <span class="tag hot">Brand Communication &amp; Guidelines</span>
+        <span class="tag">Cross-functional Collaboration</span>
+        <span class="tag">Event &amp; Partnership</span>
+        <span class="tag">Influencer Marketing</span>
+        <span class="tag">Email &amp; Lifecycle Marketing</span>
+        <span class="tag">Web &amp; Marketing Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-label">Work</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+
+  <!-- Accor Plus -->
+  <div class="case-item">
+    <h3 class="case-title">Integrated Campaigns Across Two Markets</h3>
+    <div class="case-meta">
+      <span class="case-company">Accor Plus (Accor Group)</span>
+      <span class="case-type">Oct 2024 – Apr 2026 · Marketing Executive · Hospitality &amp; Travel Loyalty</span>
+    </div>
+    <div class="case-body">
+      <p>Planned and executed integrated, multi-channel campaigns — email, social, paid &amp; organic, and events — across Vietnam &amp; Philippines markets to drive member acquisition, engagement, and retention, managing end-to-end from planning through execution and performance reporting.</p>
+
+      <p>Developed content and visual assets for paid &amp; organic campaigns across Facebook, Instagram, and Zalo OA, achieving up to <span class="hl">5% conversion rates</span> and contributing to <span class="hl">350% growth in Zalo OA followers</span> through personalized broadcast strategies developed with the Member Care team. Also contributed to CRM-driven lifecycle initiatives — email marketing, website offers, audience segmentation support — helping improve email open and click-through rates by <span class="hl">3–5%</span>.</p>
+
+      <p>Localized and adapted campaign messaging and content across markets to maintain brand consistency, ensuring tone, visuals, and messaging aligned with brand guidelines across digital and offline touchpoints. Coordinated influencer collaborations and hotel/partner relationships across Vietnam &amp; Philippines — managing content alignment, approvals, and campaign participation with Accor properties and Loyalty Marketing teams.</p>
+
+      <p>Co-organized <span class="hl">15+ exclusive member events</span> across both markets, achieving <span class="hl">~90% fulfillment rate</span> — managing logistics, partner coordination, and member communications.</p>
+    </div>
+  </div>
+
+  <!-- SparkMinds -->
+  <div class="case-item">
+    <h3 class="case-title">Brand Communication &amp; Operations for a Tech Startup</h3>
+    <div class="case-meta">
+      <span class="case-company">SparkMinds J.S.C</span>
+      <span class="case-type">Apr 2023 – Sep 2024 · Marketing &amp; Operations Executive · Technology</span>
+    </div>
+    <div class="case-body">
+      <p>Developed brand materials and led content initiatives to strengthen brand communication and consistency across digital channels — covering tone of voice, messaging, and visual identity.</p>
+
+      <p>Managed the company website (WordPress) and social media strategy, including long-form content (1000+ words) on technology and product topics, produced using AI-assisted research and drafting, and revamped social communication for consistency and engagement.</p>
+
+      <p>Planned and executed B2B multi-channel campaigns — email marketing and newsletters — aligned with sales objectives to support lead nurturing and customer engagement.</p>
+
+      <p>Collaborated closely with Sales, Product, and Technical/QA teams — including contributing to UI/UX design for blockchain products based on PM/BA requirements (see "Also Explored" below) — and produced internal collateral and visual communications, including team profile materials, video scripts, and photoshoot coordination, supporting recruitment and external-facing brand presentation.</p>
+    </div>
+  </div>
+
+  <!-- Earlier Experience -->
+  <div class="earlier-exp">
+    <h3>Earlier Experience</h3>
+    <span class="case-type">Aug 2022 – Sep 2023 · TRG International &amp; Freelance Projects (B2B, Education &amp; Beauty)</span>
+    <p><strong>TRG International — General Marketing Intern, Technology &amp; Software.</strong> Supported digital marketing execution — email campaigns via HubSpot, website content and landing pages via WordPress — and produced long-form content (1000+ words) on finance-related topics using AI-assisted research and drafting, alongside virtual event coordination and campaign execution.</p>
+    <p><strong>Freelance &amp; Project-based (B2B, Education &amp; Beauty).</strong> Supported digital marketing execution — CRM and email via HubSpot/Mailchimp, website/landing page management via WordPress — across multiple industries and business categories. Developed content strategies and social media content across Facebook, Instagram, and community channels, coordinated events with up to 250 participants alongside partnership outreach and PR activities, and supported product launches and campaign execution across education and beauty sectors.</p>
+  </div>
+</section>
+
+<!-- WORK SAMPLES -->
+<section id="work">
+  <div class="section-header">
+    <span class="section-label">Artifacts</span>
+    <h2 class="section-title">Work Samples</h2>
+  </div>
+  <p style="font-size:14px;color:var(--ink2);max-width:600px;margin-bottom:2rem;line-height:1.7">Brand and content materials from my work at SparkMinds, including company collateral and live websites I helped build and manage.</p>
+
+  <div class="samples-grid">
+    <div class="sample-card">
+      <h3 class="sample-title">Company Profile</h3>
+      <span class="sample-type">Brand Collateral · Canva</span>
+      <p class="sample-desc">Company profile document showcasing brand identity, services, and team expertise — used for partner and stakeholder communications.</p>
+      <a href="https://canva.link/3a39viim92ys482" class="sample-link" target="_blank">View in Canva →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">Proposal Template</h3>
+      <span class="sample-type">Brand Collateral · Canva</span>
+      <p class="sample-desc">Client proposal template maintaining brand consistency and visual hierarchy for B2B communications.</p>
+      <a href="https://canva.link/j8nssiesq9c67ig" class="sample-link" target="_blank">View in Canva →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">Team CV Summary</h3>
+      <span class="sample-type">Brand Collateral · Canva</span>
+      <p class="sample-desc">Curated team profile compilation, produced for recruitment and external-facing presentation.</p>
+      <a href="https://canva.link/a45fios1gvi9g10" class="sample-link" target="_blank">View in Canva →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">SparkMinds Website</h3>
+      <span class="sample-type">Web · Live</span>
+      <p class="sample-desc">Company website built and managed via WordPress, including long-form content and social communication strategy.</p>
+      <a href="https://sparkminds.net" class="sample-link" target="_blank">Visit Website →</a>
+    </div>
+
+    <div class="sample-card">
+      <h3 class="sample-title">DQ Smart Website</h3>
+      <span class="sample-type">Web · Live</span>
+      <p class="sample-desc">Supported layout design and content strategy from draft through to launch.</p>
+      <a href="https://dqsmart.vn" class="sample-link" target="_blank">Visit Website →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ALSO EXPLORED -->
+<section class="additional-section">
+  <div class="section-header">
+    <span class="section-label">Beyond</span>
+    <h2 class="section-title">Also Explored: UI/UX Design</h2>
+  </div>
+  <p class="additional-intro">Outside of core marketing execution, I contributed to UI/UX design for fintech products at SparkMinds — collaborating with Project Managers, Business Analysts, and development teams to translate requirements into interface designs.</p>
+
+  <div class="mini-grid">
+    <div class="mini-card">
+      <div class="mini-card-title">Maxbit UI/UX</div>
+      <span class="mini-card-type">Figma · Blockchain trading platform</span>
+      <a href="https://www.figma.com/design/OSUUVPkWM2PhDsCamn7tUD/Latest-UI-Version--Copy-" class="mini-link" target="_blank">View in Figma →</a>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">Maxbit UI v2</div>
+      <span class="mini-card-type">Figma · Refined design system</span>
+      <a href="https://www.figma.com/design/PspGsHaN9tBw4LACmKA951/Maxbit---UI-Design--Sue---Copy-" class="mini-link" target="_blank">View in Figma →</a>
+    </div>
+    <div class="mini-card">
+      <div class="mini-card-title">POPG Wallet &amp; Rewards</div>
+      <span class="mini-card-type">Figma · Wallet &amp; rewards UI</span>
+      <a href="https://www.figma.com/design/1BSBLDvtBf3i1J59kTGr3D/POPG-Wallet---Reward-System--Copy-" class="mini-link" target="_blank">View in Figma →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS & TOOLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-label">Toolkit</span>
+    <h2 class="section-title">Tools &amp; Platforms</h2>
+  </div>
+  <div class="tools-grid">
+    <div class="tools-block">
+      <div class="tools-block-title">Content &amp; Design</div>
+      <div class="tools-items">
+        <span class="tool-badge">Canva</span>
+        <span class="tool-badge">Adobe Photoshop</span>
+        <span class="tool-badge">Figma</span>
+      </div>
+    </div>
+    <div class="tools-block">
+      <div class="tools-block-title">Web &amp; Social</div>
+      <div class="tools-items">
+        <span class="tool-badge">WordPress</span>
+        <span class="tool-badge">Meta Business Suite</span>
+        <span class="tool-badge">LinkedIn Business</span>
+      </div>
+    </div>
+    <div class="tools-block">
+      <div class="tools-block-title">Email &amp; CRM</div>
+      <div class="tools-items">
+        <span class="tool-badge">HubSpot</span>
+        <span class="tool-badge">Mailchimp</span>
+        <span class="tool-badge">Salesforce Marketing Cloud</span>
+      </div>
+    </div>
+    <div class="tools-block">
+      <div class="tools-block-title">Project Management</div>
+      <div class="tools-items">
+        <span class="tool-badge">Asana</span>
+        <span class="tool-badge">Trello</span>
+      </div>
+    </div>
+    <div class="tools-block">
+      <div class="tools-block-title">Analytics</div>
+      <div class="tools-items">
+        <span class="tool-badge">Yellowfin</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section>
+  <div class="section-header">
+    <span class="section-label">Education</span>
+    <h2 class="section-title">Background</h2>
+  </div>
+  <div class="edu-row">
+    <div>
+      <div class="edu-school">UEH University — Bachelor of Economics</div>
+      <div class="edu-detail">Specialising in Applied Economics &amp; Marketing · GPA 3.296/4.0</div>
+    </div>
+    <div class="edu-period">2019 – 2022</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2 class="contact-headline">Let's talk about<br>your next <em>campaign</em>.</h2>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:pthaoon@gmail.com">
+        <div>
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-val">pthaoon@gmail.com</span>
+        </div>
+      </a>
+      <a class="contact-link" href="tel:+84909650586">
+        <div>
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-val">+84 909 650 586</span>
+        </div>
+      </a>
+      <a class="contact-link" href="https://www.linkedin.com/in/thaothiphuongnguyen/" target="_blank">
+        <div>
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-val">View profile →</span>
+        </div>
+      </a>
+      <div style="padding:1rem 1.25rem;border:0.5px solid var(--rule);font-size:13px;color:var(--ink3);background:#fff">
+        📍 Ho Chi Minh City · Open to Marketing Executive / Generalist roles
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Thao Nguyen (Audrey)</div>
+  <div class="footer-note">Marketing Executive Portfolio · 2026</div>
+</footer>
+
+</body>
+</html>
